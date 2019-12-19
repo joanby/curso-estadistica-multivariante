@@ -52,13 +52,17 @@ contour(bivn.kde, add = TRUE)     # from base graphics package
 
 
 #################################### Example 4
-rho <- cor(bivn)
-plot(bivn, xlab = "X", ylab = "Y",
+mu =  c(0,0)
+Sigma = matrix(c(1, 0, 0, 1), 2)
+bivn4 <- mvrnorm(5000, mu , Sigma )  
+
+rho <- cor(bivn4)
+plot(bivn4, xlab = "X", ylab = "Y",
      col = "cyan",
      main = "Bivariate Normal with ellipses")
-lines(ellipse(rho), col="red")       
-lines(ellipse(rho, level = .99), col="green")
-lines(ellipse(rho, level = .90), col="blue")
+lines(ellipse(mu,rho), col="red")       
+lines(ellipse(mu,rho, alpha = .01), col="green")
+lines(ellipse(mu,rho, alpha = .1), col="blue")
 plot_legend <- c("99% CI green", "95% CI red","90% CI blue")
 legend(2.5,3.5,legend=plot_legend,cex = 1, bty = "n")
 
@@ -78,13 +82,13 @@ b <- data.frame( x=bivn2[,1], y=bivn2[,2] )
 # Caso 1
 # Grafico de contornos
 # Solo contorno
-ggplot(b, aes(x=x, y=y) ) +
+ggplot(a, aes(x=x, y=y) ) +
   geom_density_2d()
 # Solo area
-ggplot(b, aes(x=x, y=y) ) +
+ggplot(a, aes(x=x, y=y) ) +
   stat_density_2d(aes(fill = ..level..), geom = "polygon")
 # Area + contorno
-ggplot(b, aes(x=x, y=y) ) +
+ggplot(a, aes(x=x, y=y) ) +
   stat_density_2d(aes(fill = ..level..), geom = "polygon", colour="white")
 
 # Caso 2

@@ -20,7 +20,7 @@ bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 50)   # MASS package
 bivn2.kde <- kde2d(bivn2[,1], bivn2[,2], n = 50)
 bivn3.kde <- kde2d(bivn3[,1], bivn3[,2], n = 50)
 
-# Gráfico de contorno
+# Contour plot 
 image(bivn.kde)       # base graphics package
 contour(bivn.kde, add = TRUE)     # graphics package
 
@@ -62,7 +62,7 @@ install.packages("clusterGeneration")
 library(corrplot)
 library(clusterGeneration)
 mu <- rep(0,10) 
-pdMat <- genPositiveDefMat(10,lambdaLow=10) #Generar una matriz sigma def positiva
+pdMat <- genPositiveDefMat(10,lambdaLow=10) #Generar auna matriz sigma def positiva
 Sigma <- pdMat$Sigma
 dim(Sigma) #cuadrada de 10x10
 mvn <- mvrnorm(5000, mu = mu, Sigma = Sigma )
