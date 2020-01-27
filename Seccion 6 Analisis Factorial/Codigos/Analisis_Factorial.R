@@ -38,6 +38,30 @@ p
 pairs(X,col="blue",pch=19,main="Original dataset")
 
 ##################################################################################################################
+# Transformamos algunas variables
+##################################################################################################################
+
+# Veamos la asimetría de las variables y la curtosis
+
+install.packages("moments")
+library(moments)
+skewness(X)
+kurtosis(X)
+
+X[,1] <- log(X[,1])
+colnames(X)[1] <- "Log-Population"
+X[,3] <- log(X[,3])
+colnames(X)[3] <- "Log-Illiteracy"
+X[,8] <- log(X[,8])
+colnames(X)[8] <- "Log-Area"
+
+pairs(X,col="blue",pch=19,main="Original dataset")
+
+skewness(X)
+kurtosis(X)
+
+
+##################################################################################################################
 # Como las vairables tienen diferentes unidades de medida,
 # vamos a usar la matriz de correlaciones para estimar la matriz de carga.
 ##################################################################################################################
