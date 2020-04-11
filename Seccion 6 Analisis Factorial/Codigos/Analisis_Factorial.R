@@ -41,13 +41,6 @@ pairs(X,col="blue",pch=19,main="Original dataset")
 # Transformamos algunas variables
 ##################################################################################################################
 
-# Veamos la asimetría de las variables y la curtosis
-
-install.packages("moments")
-library(moments)
-skewness(X)
-kurtosis(X)
-
 X[,1] <- log(X[,1])
 colnames(X)[1] <- "Log-Population"
 X[,3] <- log(X[,3])
@@ -57,13 +50,11 @@ colnames(X)[8] <- "Log-Area"
 
 pairs(X,col="blue",pch=19,main="Original dataset")
 
-skewness(X)
-kurtosis(X)
 
 
 ##################################################################################################################
 # Como las vairables tienen diferentes unidades de medida,
-# vamos a usar la matriz de correlaciones para estimar la matriz de carga.
+# Vamos a usar la matriz de correlaciones para estimar la matriz de carga.
 ##################################################################################################################
 
 mu <- colMeans(X)
@@ -232,3 +223,4 @@ text(X.4$scores[,c(2,4)],labels=rownames(X),pos = 4,col="blue")
 
 plot(X.4$scores[,3],X.4$scores[,4],xlab="Third factor",ylab="Fourth factor",main="Scores with MLE",pch=19,col="blue")
 text(X.4$scores[,c(3,4)],labels=rownames(X),pos = 4,col="blue")
+
