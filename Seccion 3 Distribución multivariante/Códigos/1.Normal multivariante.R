@@ -16,13 +16,16 @@ plot(bivn2[,1],bivn2[,2])
 plot(bivn3[,1],bivn3[,2])
 
 # Calcular densidades kernel 
-bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 50)   # MASS package
+bivn.kde <- kde2d(bivn[,1], bivn[,2],n=50)   # MASS package
 bivn2.kde <- kde2d(bivn2[,1], bivn2[,2], n = 50)
 bivn3.kde <- kde2d(bivn3[,1], bivn3[,2], n = 50)
 
 # Contour plot 
 image(bivn.kde)       # base graphics package
 contour(bivn.kde, add = TRUE)     # graphics package
+
+plot(bivn[,1],bivn[,2])
+contour(bivn.kde, add = TRUE)
 
 #### Superficie 3-dimensional
 # Basic perspective plot

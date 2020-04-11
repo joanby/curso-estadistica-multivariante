@@ -1,5 +1,6 @@
 install.packages("mixtools")
 library(mixtools)
+library(mvtnorm)
 
 #Generando datos bidimensionales t-student con 3 grados de libertad
 ## x ~ t_3(0, diag(2)) 
@@ -14,6 +15,7 @@ ellipse(mu = clcenter, sigma = clcov, alpha = 0.25,col = "green", lty = 3)
 ellipse(mu = clcenter, sigma = clcov, alpha = 0.5,col = "red", lty = 3)
 
 # Calcular densidades kernel 
+library(MASS)
 bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 50)   # MASS package
 
 # Superficie 3-dimensional de la densidad 
@@ -23,11 +25,13 @@ col1 <- heat.colors(length(bivn.kde$z))[rank(bivn.kde$z)]
 persp3d(bivn.kde, col = col1)
 
 #Contornos
-bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 50) 
+bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 150) 
 filled.contour(x = bivn.kde$x, y = bivn.kde$y , z = bivn.kde$z,plot.axes = { axis(1); axis(2); points(0, 0) })
 image(bivn.kde)       # from base graphics package
 contour(bivn.kde, add = TRUE)     # from base graphics package
 
+library(tidyverse)
+library(ggplot2)
 a <- data.frame( a1=bivn[,1], a2=bivn[,2] )
 # Caso 1
 # Grafico de contornos
@@ -57,9 +61,6 @@ ellipse(mu = clcenter, sigma = clcov, alpha = 0.025,col = "blue", lty = 2)
 ellipse(mu = clcenter, sigma = clcov, alpha = 0.25,col = "green", lty = 3)
 ellipse(mu = clcenter, sigma = clcov, alpha = 0.5,col = "red", lty = 3)
 
-
-# Calcular densidades kernel 
-bivn2.kde <- kde2d(bivn2[,1], bivn2[,2], n = 50)   # MASS package
 
 # Superficie 3-dimensional de la densidad 
 # RGL interactive plot

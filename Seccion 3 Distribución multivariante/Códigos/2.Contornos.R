@@ -15,7 +15,7 @@ x.points <- seq(-3,4,length.out=100)
 y.points <- x.points
 z <- matrix(0,nrow=100,ncol=100)
 mu <- c(1,1)
-sigma <- matrix(c(2,1,1,1),nrow=2)
+sigma <- matrix(c(2,1,1,2),nrow=2)
 for (i in 1:100) {
   for (j in 1:100) {
     z[i,j] <- dmvnorm(c(x.points[i],y.points[j]),
@@ -60,11 +60,13 @@ rho <- cor(bivn4)
 plot(bivn4, xlab = "X", ylab = "Y",
      col = "cyan",
      main = "Bivariate Normal with ellipses")
-lines(ellipse(mu,rho), col="red")       
-lines(ellipse(mu,rho, alpha = .01), col="green")
-lines(ellipse(mu,rho, alpha = .1), col="blue")
+
+lines(ellipse(rho, level = .90), col="blue")
+lines(ellipse(rho, level = .95), col="red")       
+lines(ellipse(rho, level = .99), col="green")
+
 plot_legend <- c("99% CI green", "95% CI red","90% CI blue")
-legend(2.5,3.5,legend=plot_legend,cex = 1, bty = "n")
+legend(-4,-2,legend=plot_legend,cex = 1, bty = "n")
 
 
 #################################### Example 5
@@ -102,5 +104,17 @@ ggplot(b, aes(x=x, y=y) ) +
 # Area + contorno
 ggplot(b, aes(x=x, y=y) ) +
   stat_density_2d(aes(fill = ..level..), geom = "polygon", colour="white")
+
+
+# Normal tridimensional
+x <- mvrnorm(500, mu = c(0, 0, 0),
+                      Sigma = rbind(c(1.5, 0.25, 0.5),
+                                    c(0.25, 0.75, 1),
+                                    c(0.5, 1, 2)))
+
+# Mostrar contornos anidados de regiones de alta densidad
+plot(ks::kde(x = x, H = diag(c(rep(1.25, 3)))), drawpoints = TRUE, col.pt = 1)
+rgl::rglwidget()
+
 
 
