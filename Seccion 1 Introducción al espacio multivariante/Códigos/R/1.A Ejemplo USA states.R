@@ -99,6 +99,7 @@ library(scatterplot3d)
 scatterplot3d(Income,`Life Exp`,Murder,pch=19,color="blue") # 3D scatterplot
 scatterplot3d(Income,`Life Exp`,Murder,pch=19,color="blue",type="h") # 3D scatterplot
 
+install.packages("Rcpp")
 library(rgl)
 open3d() # Abrir una ventana gráfica en 3 dimensiones
 plot3d(Income,`Life Exp`,Murder,size=5) # Se pueden rotar los ejes.

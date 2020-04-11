@@ -96,18 +96,14 @@ sapply(seq(1,4),function(j){
 
 
 ##################################################################################################################
-# Densidad Kernel 2d
+# Densidad Kernel
 ##################################################################################################################
-data1 <- cbind(Y$Sepal.Length, Y$Petal.Length)
-iris_kde <- bkde2D(data1, bandwidth = 0.25,gridsize = c(101,101), range.x=list(c(4,8),c(1,7)))
-par(mfrow=c(1,1))
-persp(x=iris_kde$x1,y=iris_kde$x2,z=iris_kde$fhat, col="skyblue",xlab="Sepal.Length", ylab="Petal.Length", zlab="Density", theta=120, phi=10)
-
-
+install.packages("KernSmooth")
 install.packages("MASS")
 install.packages("ks")
 library(MASS)
 library(ks)
+
 
 bivkde=kde2d(Y$Sepal.Length, Y$Sepal.Width)
 library(rgl)
@@ -122,7 +118,7 @@ play3d( spin3d( axis = c(0, 0, 1),    rpm = 7),duration = 100 )
 
 attach(Y)
 par(mfrow=c(1,1)) # Volver a definir una ventana normal
-plot(Sepal.Length,Petal.Length,pch=19,xlab="Income",ylab="Life expectancy")
+plot(Sepal.Length,Petal.Length,pch=19,xlab="Sepal.Length",ylab="Petal.Length")
 
 ##################################################################################################################
 # 3D-Scatterplot de Sepal.Length, Petal.Length y Petal.Width
