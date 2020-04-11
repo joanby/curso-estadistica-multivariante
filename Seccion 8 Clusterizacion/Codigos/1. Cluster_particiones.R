@@ -56,7 +56,8 @@ col.cluster <- c("blue","red","green")[Cl.kmeans]
 pairs(X.s,col=col.cluster,main="k-means",pch=19)
 
 # Visualización con las primeras 2 componentes principales
-
+install.packages("cluster")
+library(cluster)
 clusplot(X.s,Cl.kmeans)
 text(princomp(X.s)$scores[,1:2],labels=rownames(X.s),pos = 1,col="blue")
 
