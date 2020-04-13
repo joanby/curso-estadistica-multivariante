@@ -6,16 +6,16 @@ Bienvenido a nuestro Curso avanzado de estadística multivariante con R y Python
 
 ## ¿Qué vamos a aprender?
 
-Empezaremos con el análisis exploratorio para ser capaces de describir y visualizar los datos de las muestras que tenemos. La visualización es importante para entender los datos, así que poder producir gráficos 2D y 3D es sin duda un requisito para poder hacer un correcto análisis multivariante.
+* Empezaremos con el análisis exploratorio para ser capaces de describir y visualizar los datos de las muestras que tenemos. La visualización es importante para entender los datos, así que poder producir gráficos 2D y 3D es sin duda un requisito para poder hacer un correcto análisis multivariante.
 
-Luego vamos a ver toda la teoría detrás de las variables aleatorias multivariantes y sus distribuciones respectivas. 
+* Luego vamos a ver toda la teoría detrás de las variables aleatorias multivariantes y sus distribuciones respectivas. 
 
-También veremos los métodos de inferencia multivariante para obtener conclusiones más generales respecto al proceso que ha generado los datos de que disponemos y poder contrastar hipótesis respecto a su estructura. 
+* También veremos los métodos de inferencia multivariante para obtener conclusiones más generales respecto al proceso que ha generado los datos de que disponemos y poder contrastar hipótesis respecto a su estructura. 
 
-Los métodos de componentes principales (ACP) y análisis factorial para reducir la dimensión y ver patrones que antes no se veían debido a la gran cantidad de datos, muy utilizados en el campo del Big Data para poder analizar datos en nuestras propias máquinas. 
+* Los métodos de componentes principales (ACP) y análisis factorial para reducir la dimensión y ver patrones que antes no se veían debido a la gran cantidad de datos, muy utilizados en el campo del Big Data para poder analizar datos en nuestras propias máquinas. 
 
-El escalado multidimensional (MDS) para cuando los datos disponibles no corresponden a variables sino a similitudes o semejanzas entre ellos. 
+* El escalado multidimensional (MDS) para cuando los datos disponibles no corresponden a variables sino a similitudes o semejanzas entre ellos. 
 
-Y finalizaremos con los métodos de agrupaciones que son clustering y clasificación para investigar si los elementos de nuestra muestra forman un grupo homogéneo o no, y poder clasificar nuevos datos que vengan en un futuro en uno de dichos grupos.
+* Y finalizaremos con los métodos de agrupaciones que son clustering y clasificación para investigar si los elementos de nuestra muestra forman un grupo homogéneo o no, y poder clasificar nuevos datos que vengan en un futuro en uno de dichos grupos.
 
 Y todo esto con trasparencias explicando toda la teoría, ejemplos y casos prácticos explicados al completo, todo el código fuente tanto en R como en Python y por supuesto ejercicios prácticos, cuestionarios, tareas, y material complementario para poder seguir el curso sin ningún problema y que al completarlo seas un experto del análisis de datos multivariante.
